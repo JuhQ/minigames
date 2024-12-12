@@ -13,3 +13,13 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
+
+runner:
+  eslint:
+    cmd: eslint
+    args: [".", "--format", "json"]
+    format: eslint
+    level: error
+    name: eslint
+    reporter: github-pr-review # Change to github-check if you prefer GitHub Checks
+    filter_mode: added
