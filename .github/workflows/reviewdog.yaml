@@ -1,7 +1,5 @@
-name: Reviewdog
-
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -10,16 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - run: npm ci
       - uses: reviewdog/action-setup@v1
         with:
-          reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
-
-runner:
-  eslint:
-    cmd: eslint
-    args: [".", "--format", "json"]
-    format: eslint
-    level: error
-    name: eslint
-    reporter: github-pr-review # Change to github-check if you prefer GitHub Checks
-    filter_mode: added
+          reviewdog_version: latest
+      - name: Run ESLint with Reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx eslint . --format json > eslint-report.json
+          reviewdog -f=eslint -name="eslint" -reporter=github-pr-review -level=error -filter-mode=added < eslint-report.json
