@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "linters": "npm run lint:biome && npm run lint",
     "lint": "eslint .",
     "lint:biome": "npx @biomejs/biome check ./src",
     "lint:biome:fix": "npm run lint:biome -- --apply",
