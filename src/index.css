@@ -8,16 +8,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-start-rgb: 0 10 10;
+    --background-start-rgb: 0, 10, 10;
   }
 }
 
 html {
   background: rgb(var(--background-start-rgb));
-}
-
-body {
-  @apply bg-gradient-to-br from-sky-50 to-sky-100;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +23,7 @@ body {
 }
 
 body {
+  @apply bg-gradient-to-br from-sky-50 to-sky-100;
   margin: 0;
   display: flex;
   place-items: center;
