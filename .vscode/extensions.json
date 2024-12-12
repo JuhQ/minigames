@@ -1,3 +1,17 @@
 {
-  "recommendations": ["biomejs.biome"]
+  "recommendations": [
+    "biomejs.biome",
+    "kisstkondoros.vscode-codemetrics",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker-finnish",
+    "github.copilot",
+    "github.copilot-chat",
+    "github.vscode-pull-request-github",
+    "wix.vscode-import-cost",
+    "ms-playwright.playwright",
+    "esbenp.prettier-vscode",
+    "amatiasq.sort-imports",
+    "shardulm94.trailing-spaces"
+  ]
 }
