@@ -1,5 +1,3 @@
-name: Reviewdog
-
 on:
   pull_request:
     branches:
@@ -21,4 +19,4 @@ jobs:
       - name: Run ESLint with Reviewdog
         run: |
           npx eslint . --format json > eslint-report.json
-          reviewdog -f=eslint -name="eslint" -reporter=github-pr-review -level=error < eslint-report.json
+          reviewdog -f=eslint -name="eslint" -reporter=github-pr-review -level=error -filter-mode=added < eslint-report.json
