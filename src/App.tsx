@@ -1,7 +1,21 @@
 import "./App.css";
 
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
+
+import HangmanPage from "./pages/Hangman";
+import Home from "./pages/Home";
+
 function App() {
-  return <p>minigames is cool, indeed</p>;
+  return (
+    <Router>
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hangman" element={<HangmanPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
