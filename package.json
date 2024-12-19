@@ -9,7 +9,7 @@
     "linters": "npm run lint:biome && npm run lint",
     "lint": "eslint .",
     "lint:biome": "npx @biomejs/biome check ./src",
-    "lint:biome:fix": "npm run lint:biome -- --apply",
+    "lint:biome:fix": "npm run lint:biome -- --write",
     "preview": "vite preview",
     "prepare": "husky",
     "test:playwright": "playwright test",
