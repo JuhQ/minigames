@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <>minigames</>;
+  return <>minigames is cool</>;
 }
 
 export default App;
