@@ -11,8 +11,10 @@ interface HandleSelectCategory {
   list: string[];
 }
 
+const fallbackWord = "cat";
+
 const getRandomWord = (list: string[]): string =>
-  (sample(list) as string).toLowerCase();
+  (sample(list) as string)?.toLowerCase() ?? fallbackWord;
 
 const Hangman = () => {
   const [word, setWord] = useState<string>("");
@@ -45,10 +47,8 @@ const Hangman = () => {
   };
 
   useEffect(() => {
-    const randomWord = getRandomWord(words);
-    setWord(randomWord);
-    setDisplayedWord(randomWord.split("").map(() => "_"));
-  }, [words]);
+    resetGame();
+  }, [resetGame]);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
