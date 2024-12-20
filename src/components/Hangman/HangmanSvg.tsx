@@ -3,16 +3,20 @@ import { memo } from "react";
 interface Props {
   incorrectGuesses: number;
   fill?: string;
+  width?: number;
+  height?: number;
 }
 
 const HangmanSvg = ({
   incorrectGuesses,
-  fill = "white"
+  fill = "white",
+  width = 200,
+  height = 200,
 }: Props): JSX.Element => (
   <svg
-    width="200"
-    height="200"
-    viewBox="0 0 200 200"
+    width={width}
+    height={height}
+    viewBox={`0 0 ${width} ${height}`}
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect x="10" y="180" width="180" height="20" fill={fill} />
