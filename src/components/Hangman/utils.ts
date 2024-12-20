@@ -12,7 +12,7 @@ const categoryDb: CategoryTuple[] = [["Cat breeds", catBreeds]];
 
 const categories: CategoryTuple[] = categoryDb.map(([category, list]) => [
   category,
-  list.map(cleanWord)
+  list.map(cleanWord),
 ]);
 
 export default categories;

@@ -22,5 +22,5 @@ export const catBreeds = [
   "Himalayan",
   "Japanese Bobtail",
   "Javanese",
-  "Korat"
+  "Korat",
 ];
