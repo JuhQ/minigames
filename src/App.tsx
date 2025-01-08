@@ -1,8 +1,10 @@
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
 
-import HangmanPage from "./pages/Hangman";
-import Home from "./pages/Home";
-import MemoryPage from "./pages/Memory";
+import React from "react";
+
+const Home = React.lazy(() => import("./pages/Home"));
+const HangmanPage = React.lazy(() => import("./pages/Hangman"));
+const MemoryPage = React.lazy(() => import("./pages/Memory"));
 
 function App() {
   return (
