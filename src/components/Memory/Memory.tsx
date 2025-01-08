@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Box from "./Box";
 import Reveal from "./Reveal";
-import { generateRandomHex } from "./utils copy";
+import { generateRandomHex } from "./utils";
 import { getColumnCount } from "./utils";
 import shuffle from "lodash/shuffle";
 import times from "lodash/times";
