@@ -11,6 +11,9 @@ function Home() {
         <li>
           <Link to="/hangman">Hangman</Link>
         </li>
+        <li>
+          <Link to="/memory">Memory</Link>
+        </li>
       </ul>
     </div>
   );

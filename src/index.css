@@ -16,12 +16,6 @@ html {
   background: rgb(var(--background-start-rgb));
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    @apply bg-gradient-to-br from-gray-900 to-gray-950;
-  }
-}
-
 body {
   @apply bg-gradient-to-br from-sky-50 to-sky-100;
   margin: 0;
@@ -29,4 +23,15 @@ body {
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gradient-to-br from-gray-900 to-gray-950;
+  }
+}
+
+#root {
+  min-width: 100vw;
+  margin: 1rem;
 }
