@@ -1,20 +1,23 @@
-import "./App.css";
-
+import React, { Suspense } from "react";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
 
-import HangmanPage from "./pages/Hangman";
-import Home from "./pages/Home";
+const Home = React.lazy(() => import("./pages/Home"));
+const HangmanPage = React.lazy(() => import("./pages/Hangman"));
+const MemoryPage = React.lazy(() => import("./pages/Memory"));
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/hangman" element={<HangmanPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Router>
+        <div className="min-h-screen container m-0 mx-auto dark:text-white">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/hangman" element={<HangmanPage />} />
+            <Route path="/memory" element={<MemoryPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </Suspense>
   );
 }
 

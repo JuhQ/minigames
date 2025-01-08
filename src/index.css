@@ -16,17 +16,22 @@ html {
   background: rgb(var(--background-start-rgb));
 }
 
+body {
+  @apply bg-gradient-to-br from-sky-50 to-sky-100;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     @apply bg-gradient-to-br from-gray-900 to-gray-950;
   }
 }
 
-body {
-  @apply bg-gradient-to-br from-sky-50 to-sky-100;
-  margin: 0;
-  display: flex;
-  place-items: center;
+#root {
   min-width: 100vw;
-  min-height: 100vh;
+  margin: 1rem;
 }

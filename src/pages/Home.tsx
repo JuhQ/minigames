@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+const games = [
+  { name: "Hangman", path: "/hangman" },
+  { name: "Memory", path: "/memory" },
+];
+
 function Home() {
   return (
     <div>
@@ -8,9 +13,11 @@ function Home() {
       <h2 className="text-2xl font-bold">List of games</h2>
 
       <ul>
-        <li>
-          <Link to="/hangman">Hangman</Link>
-        </li>
+        {games.map((game) => (
+          <li key={game.name}>
+            <Link to={game.path}>{game.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
