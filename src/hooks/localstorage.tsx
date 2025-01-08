@@ -1,10 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 
+import debounce from "lodash/debounce";
+
 export function getItemFromLocalstorage<T>(key: string): null | T {
   const item = window?.localStorage.getItem(key);
 
   if (item) {
-    return JSON.parse(item);
+    try {
+      return JSON.parse(item);
+    } catch (error) {
+      console.error("Failed to parse localStorage item:", error);
+      return null; // or handle as appropriate
+    }
   }
 
   return null;
@@ -32,12 +39,16 @@ function useLocalStorage<T>(key: string): [null | T, (newValue: T) => void] {
     setInnerValue(item);
   }, [key, setInnerValue]);
 
-  useEffect(() => {
-    const item = getItemFromLocalstorage<T>(key);
-
-    if (item) {
+  const debouncedHandleEvent = useCallback(() => {
+    const debouncedFunction = debounce(() => {
+      const item = getItemFromLocalstorage<T>(key);
       setInnerValue(item);
-    }
+    }, 200);
+    debouncedFunction();
+  }, [key, setInnerValue]);
+
+  useEffect(() => {
+    debouncedHandleEvent();
 
     window?.addEventListener("storage", handleEvent);
     window?.addEventListener(eventName, handleEvent);
@@ -46,7 +57,7 @@ function useLocalStorage<T>(key: string): [null | T, (newValue: T) => void] {
       window?.removeEventListener("storage", handleEvent);
       window?.removeEventListener(eventName, handleEvent);
     };
-  }, [key, handleEvent]);
+  }, [key, handleEvent, debouncedHandleEvent]);
 
   return [value, setValue(key, setInnerValue)];
 }
