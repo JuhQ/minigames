@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import debounce from "lodash/debounce";
 
@@ -39,13 +39,18 @@ function useLocalStorage<T>(key: string): [null | T, (newValue: T) => void] {
     setInnerValue(item);
   }, [key, setInnerValue]);
 
+  const debouncedFunction = useMemo(
+    () =>
+      debounce(() => {
+        const item = getItemFromLocalstorage<T>(key);
+        setInnerValue(item);
+      }, 200),
+    [key, setInnerValue],
+  );
+
   const debouncedHandleEvent = useCallback(() => {
-    const debouncedFunction = debounce(() => {
-      const item = getItemFromLocalstorage<T>(key);
-      setInnerValue(item);
-    }, 200);
     debouncedFunction();
-  }, [key, setInnerValue]);
+  }, [debouncedFunction]);
 
   useEffect(() => {
     debouncedHandleEvent();
