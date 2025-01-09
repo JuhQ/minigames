@@ -5,15 +5,12 @@ export const checkCollision = (
 ): boolean => {
   for (let y = 0; y < tetromino.length; y++) {
     for (let x = 0; x < tetromino[y].length; x++) {
-      if (tetromino[y][x] !== 0) {
-        if (
-          !board[position.y + y] ||
-          !board[position.y + y][position.x + x] ||
-          board[position.y + y][position.x + x] !== 0
-        ) {
-          return true;
-        }
+      if (tetromino[y][x] !== 0 && (!board[position.y + y] ||
+                !board[position.y + y][position.x + x] ||
+                board[position.y + y][position.x + x] !== 0)) {
+            return true;
       }
+
     }
   }
   return false;
