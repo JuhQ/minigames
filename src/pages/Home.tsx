@@ -5,6 +5,7 @@ const games = [
   { name: "Memory", path: "/memory" },
 ];
 
+// TODO: add playwright test
 function Home() {
   return (
     <div>

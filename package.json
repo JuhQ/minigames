@@ -16,10 +16,12 @@
     "test:playwright:headed": "playwright test --headed",
     "test:playwright:ui": "playwright test --ui",
     "test:playwright:codegen": "playwright codegen",
-    "test:playwright:report": "npx playwright show-report"
+    "test:playwright:report": "npx playwright show-report",
+    "generate-todo": "leasot -x --reporter markdown 'src/**/*.{js,jsx,ts,tsx,css}' > TODO.md"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
+    "leasot": "^14.4.0",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
