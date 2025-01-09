@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const games = [
   { name: "Hangman", path: "/hangman" },
   { name: "Memory", path: "/memory" },
+  { name: "Tetris", path: "/tetris" },
 ];
 
 function Home() {
