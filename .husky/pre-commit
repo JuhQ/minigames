@@ -1,1 +1,3 @@
 npm run lint:biome
+
+npm run generate-todo
