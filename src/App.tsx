@@ -4,6 +4,7 @@ import { Route, HashRouter as Router, Routes } from "react-router-dom";
 const Home = React.lazy(() => import("./pages/Home"));
 const HangmanPage = React.lazy(() => import("./pages/Hangman"));
 const MemoryPage = React.lazy(() => import("./pages/Memory"));
+const TetrisPage = React.lazy(() => import("./pages/Tetris"));
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/hangman" element={<HangmanPage />} />
             <Route path="/memory" element={<MemoryPage />} />
+            <Route path="/tetris" element={<TetrisPage />} />
           </Routes>
         </div>
       </Router>
